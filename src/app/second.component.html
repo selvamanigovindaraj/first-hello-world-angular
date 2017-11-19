@@ -1,0 +1,56 @@
+<!-- Name:{{name}}<br>
+Age:{{age}}<br>
+School:{{school}} -->
+<table>
+  <tr>
+    <td>Name</td>
+    <td>{{name}}</td>
+  </tr>
+  <tr>
+    <td>Age</td>
+    <td>{{age}}</td>
+  </tr>
+  <tr>
+    <td>School</td>
+    <td>{{school}}</td>
+  </tr>
+</table>
+<input type="text" [(ngModel)]="value1">{{value1}}
+<input type="text" [(ngModel)]="value2">{{value2}}
+<button type="button" (click)="calculate()">Calc</button>
+<p>Result:{{result}}</p>
+<ul *ngFor="let student of students">
+    <li>{{student.id}}-{{student.name}}-{{student.age}}-{{student.school}}</li>
+</ul>
+<table>
+  <thead>
+    <th>S.NO</th>
+    <th>name</th>
+    <th>age</th>
+    <th>school</th>
+  </thead>
+  <tbody >
+    <tr *ngFor="let stud of students">
+      <td>{{stud.id}}</td>
+      <td>{{stud.name}}</td>
+      <td>{{stud.age}}</td>
+      <td>{{stud.school}}</td>
+    </tr>
+
+  </tbody>
+</table>
+<h2>CARS</h2>
+<ul >
+  <li *ngFor="let car of cars">{{car}}</li>
+</ul>
+<input type="text" [(ngModel)]="inputName" (keyup.enter)="createList()">
+<button (click)="createList()">Create List</button>
+<ul>
+  <li *ngFor="let names of list">{{names}}</li>
+</ul>
+<form>
+<select #studentName (change)="selectedSudent=studentName.value">
+  <option *ngFor="let student1 of students" [value]="student1.name">{{student1.name}}</option>
+</select>
+<button (click)="selectStudent()">StudentName</button>
+</form>
